@@ -25,6 +25,7 @@ app.use(express.json());
 
 // 加载user的路由模块
 app.use("/user", require("./router/userRouter"));
+app.use("/category",require("./router/categoryRouter"));
 
 // 处理全局异常的中间件
 app.use((err, request, response, next) => {
