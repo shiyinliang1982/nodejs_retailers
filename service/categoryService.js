@@ -57,9 +57,7 @@ async function updateCategory(name, category) {
  */
 async function getCategorysByPage(page = 1) {
     let offset = config.PAGE_SIZE * (page - 1);
-    let result = await Category.find().limit(config.PAGE_SIZE).skip(offset);
-    result = JSON.stringify(result);
-    return result
+    return await Category.find().limit(config.PAGE_SIZE).skip(offset);
 }
 
 module.exports = {

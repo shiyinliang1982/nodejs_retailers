@@ -57,10 +57,19 @@ async function updateProductById(id, product) {
  */
 async function getProductsByPage(page = 1) {
     let offset = config.PAGE_SIZE * (page - 1);
-    let result = await Product.find().limit(config.PAGE_SIZE).skip(offset);
-    return JSON.stringify(result)
+    return await Product.find().limit(config.PAGE_SIZE).skip(offset);
+}
+
+/**
+ * 根据id查找商品
+ * @param id ObjectId
+ * @returns {Promise<*>}
+ */
+async function getProductById(id) {
+    return await Product.findOne({_id: id})
 }
 
 module.exports = {
-    addProduct,deleteProductById,updateProductById,getProductsByPage
+    addProduct,deleteProductById,updateProductById,
+    getProductsByPage,getProductById
 };
