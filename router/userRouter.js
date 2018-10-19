@@ -7,7 +7,7 @@ let router = require("express").Router();
  * @param user 格式 : {username:"zhangsan",password : "123"...}
  * @returns user 格式 : {username:"zhangsan",password : "123"...}
  */
-router.post("/",async (request,response)=>{
+router.post("/regist",async (request,response)=>{
     let user =await userService.regist(request.body);
     response.success(user)
 });
